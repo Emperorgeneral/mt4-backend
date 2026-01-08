@@ -285,20 +285,19 @@ async def internal_error_handler(request, exc):
 
 if __name__ == "__main__":
     import uvicorn
-    
+
     print("=" * 60)
     print("MT4 Message Broker Starting...")
     print("=" * 60)
     print(f"Message TTL: {MESSAGE_TTL_SECONDS} seconds")
     print(f"Cleanup Interval: {CLEANUP_INTERVAL_SECONDS} seconds")
     print("=" * 60)
-    
-   import os
 
-uvicorn.run(
-    app,
-    host="0.0.0.0",
-    port=int(os.environ.get("PORT", 8000)),
-    log_level="info"
-)
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 8000)),
+        log_level="info"
+    )
+
 
